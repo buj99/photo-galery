@@ -1,0 +1,13 @@
+<div class="background">
+  <img [src]="images[imagesIndex]?.src?.portrait" alt="" />
+</div>
+<app-directional-button
+  [directionIncrese]="-1"
+  (changeDirection)="changeIndex($event)"
+></app-directional-button>
+
+<app-image-display [imageData]="images[imagesIndex]"></app-image-display>
+<app-directional-button
+  [directionIncrese]="1"
+  (changeDirection)="changeIndex($event)"
+></app-directional-button>
