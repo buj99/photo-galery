@@ -21,7 +21,7 @@ export class MainPageComponent implements OnInit {
 
   changeIndex(incrementer: number) {
     this.imagesIndexChange.emit(
-      this.imagesIndex == 0
+      this.imagesIndex == -1
         ? this.totalImages
         : (this.imagesIndex + incrementer) % this.totalImages
     );

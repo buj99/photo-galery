@@ -12,7 +12,7 @@ export class ImagesServiceService {
   constructor(private httpClient: HttpClient) {}
 
   getImages(): Observable<SearchPhotosModel> {
-    const url = 'https://api.pexels.com/v1/curated?per_page=40';
+    const url = 'https://api.pexels.com/v1/curated?per_page=25';
     const options = {
       headers: new HttpHeaders({
         Authorization: this.API_KEY,

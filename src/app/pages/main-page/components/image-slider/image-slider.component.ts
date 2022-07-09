@@ -28,14 +28,29 @@ export class ImageSliderComponent implements OnChanges {
   }
 
   onImageClick(imageId: any) {
-    this.currentIndex = this.images.findIndex((img) => img.id === imageId);
+    this.currentIndexChange.emit(
+      this.images.findIndex((img) => img.id === imageId)
+    );
+    console.log(`${this.currentIndex} slider`);
     this.calculateImageToDisplay();
   }
 
   private calculateImageToDisplay() {
-    this.imagesToDisplay = this.images.slice(
-      this.currentIndex,
-      this.currentIndex + this.offset
-    );
+    let partPhotos: Photo[] = [];
+    if (this.currentIndex + this.offset > this.images.length) {
+      this.images.slice(this.currentIndex).forEach((photo) => {
+        partPhotos.push(photo);
+      });
+      this.images.slice(0, this.offset - partPhotos.length).forEach((image) => {
+        partPhotos.push(image);
+      });
+    } else {
+      partPhotos = this.images.slice(
+        this.currentIndex,
+        this.currentIndex + this.offset
+      );
+    }
+
+    this.imagesToDisplay = partPhotos;
   }
 }

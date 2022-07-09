@@ -12,7 +12,7 @@ export class DirectionalButtonComponent implements OnInit {
   direction: string = '';
   constructor() {}
   ngOnInit(): void {
-    this.direction = this.directionIncrese >= 0 ? 'next' : 'prev';
+    this.direction = this.directionIncrese >= 0 ? '>' : '<';
   }
 
   onChangeDirection() {
